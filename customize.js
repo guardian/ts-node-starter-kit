@@ -8,13 +8,16 @@ const FILE_WHITELIST = [
     './artifact.json',
     './package.json',
     './src/cdk/app.ts',
+    './bin/package.sh',
 ];
 
 const questions = {
     __APP_NAME__: 'Please enter your app name (required, e.g. contributions-service)',
-    __BUCKET_NAME__: 'Please enter your bucket name (required, e.g. aws-frontend-contributions-service)',
+    __BUCKET_NAME__:
+        'Please enter your bucket name (required, e.g. aws-frontend-contributions-service)',
     __DESCRIPTION__: 'Please enter a short description for your project (required)',
-    __RIFF_RAFF_PROJECT_NAME__: 'Please enter your project name for Riff Raff (required, e.g. dotcom:contributions-service)',
+    __RIFF_RAFF_PROJECT_NAME__:
+        'Please enter your project name for Riff Raff (required, e.g. dotcom:contributions-service)',
     __STACK__: 'Please enter your stack (required, e.g. frontend)',
 };
 

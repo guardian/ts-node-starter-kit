@@ -16,4 +16,4 @@ deployments:
             prefixStack: true
             bucket: __BUCKET_NAME__
             fileName: lambda.zip
-            functionNames: [__APP_NAME__]
+            functionNames: [-__APP_NAME__-]

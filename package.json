@@ -9,7 +9,12 @@
   "private": false,
   "scripts": {
     "dev": "ts-node-dev --respawn --transpileOnly src/server.tsx",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "prebuild": "rm -rf dist cloudformation.yaml",
+    "build": "tsc",
+    "postbuild": "./bin/package.sh",
+    "upload-artifact": "node-riffraff-artifact"
   },
   "dependencies": {
     "@guardian/src-foundations": "^0.11.0",
@@ -37,6 +42,7 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.0",
     "inquirer": "^7.0.3",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",

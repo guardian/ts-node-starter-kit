@@ -14,16 +14,15 @@ export class LambdaService extends cdk.Stack {
 
         const bucket = '__BUCKET_NAME__';
         const key = `__STACK__/${stage.value}/lambda/lambda.zip`;
-        const functionName = `__STACK__-__APP_NAME__-${stage.value}`;
 
-        const handler = new lambda.Function(this, functionName, {
+        const handler = new lambda.Function(this, '__STACK__-__APP_NAME__', {
             runtime: lambda.Runtime.NODEJS_12_X,
             code: lambda.Code.fromBucket(
                 s3.Bucket.fromBucketName(this, 'lambda-code-bucket', bucket),
                 key,
             ),
             handler: 'server.handler',
-            functionName,
+            functionName: `__STACK__-__APP_NAME__-${stage.value}`,
         });
 
         // If you need access to parameter store then uncomment and adjust the following:
@@ -35,11 +34,9 @@ export class LambdaService extends cdk.Stack {
         //     }),
         // );
 
-        const restApiName = `__APP_NAME__-${stage.value}`;
-
         // tslint:disable-next-line: no-unused-expression
-        new apigateway.LambdaRestApi(this, restApiName, {
-            restApiName,
+        new apigateway.LambdaRestApi(this, '__APP_NAME__', {
+            restApiName: `__APP_NAME__-${stage.value}`,
             description: '__DESCRIPTION__',
             proxy: true,
             handler,
